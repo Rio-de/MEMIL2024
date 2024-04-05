@@ -1,0 +1,82 @@
+//Script.Js
+/*-----------------------
+   MAILDELIVERYフォルダ
+------------------------*/
+$(document).ready(function(){
+
+
+
+  $('.bxslider').bxSlider({
+		slideWidth: 590,
+    speed: 500,
+		controls: true,
+		auto: true,
+		pause: 5000,
+    minSlides: 1,
+		responsive: true,
+    maxSlides: 1,
+    moveSlides: 1,
+    slideMargin: 0,
+		onSliderLoad:function(currentIndex){
+		},
+		onSlideBefore: function($slideElement, oldIndex, newIndex){
+			$('.slide').removeClass('active');
+		},
+		onSlideAfter: function($slideElement, oldIndex, newIndex){
+			$('.slide').removeClass('active');
+			$('.slide').eq(newIndex + 1).addClass('active');
+		}
+  });
+
+	$(".selectBtn").click(function(){
+		//alert("cellW")
+		$(".iconCell").css({display:"table-cell"});
+		$(".waitCell").css({display:"table-cell"});
+		//$(".ttlCell").css({width:cellW});
+		$(".selectBtn").hide();
+		$(".decideBtn").css({display:"block"});
+		$(".selectBtn em").text("決定");
+		return false;
+	});
+	$(".btnMore").click(function(){
+		$(".qaList").show();
+		$(this).hide();
+		return false;
+	})
+
+
+	$(".qaList").each(function(){
+		$("input",this).click(function(){
+			//alert($(this).parents("tr").find("input").prop('checked'));
+			if($(this).prop("checked")){
+				$(this).parents("tr").find("input").prop('checked', false);
+				 $(this).prop('checked', true);
+		 }else {
+			$(this).parents("tr").find("input").prop('checked', false);
+		 }
+		});
+	});
+
+	$(".decideBtn").click(function () {
+        if ($(this).attr('type') == 'submit') {
+
+          // 一番近くのformにhiddenタグを追加。
+          // この下の処理で対象のボタンを非活性にすると、
+          // 対象のボタンのnameとvalue属性が取得出来なくなるため。
+          $('<input />').attr('type', 'hidden')
+          .attr('name', $(this).attr("name"))
+          .attr('value', $(this).attr("value"))
+          .appendTo($(this).closest('form'));
+
+          // ボタンを非活性にし、2度押しを防止
+          $(this).prop('disabled', true);
+
+          // 一番近くのformをsubmit
+          $(this).closest('form').submit();
+
+          return false;
+        }
+      });
+
+
+});//DocRdyFncEnd

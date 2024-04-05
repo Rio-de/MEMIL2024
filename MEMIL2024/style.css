@@ -1,0 +1,471 @@
+/* Style.Css
+---------------------------------------------------- */
+/*-----------------------
+   TEACHERフォルダ
+------------------------*/
+.topPage .ttl0{
+	margin:-8px 0 20px;
+	padding:8px 0 8px 0px;
+	font-size:18px;
+	font-weight:bold;
+	border-bottom:2px solid #ddd;
+	position:relative;
+}
+.topPage #mainBanner{
+	padding:0px 0 20px 0;
+	border-top:1px solid #C0CDE0;
+	border-bottom:1px solid #C0CDE0;
+	background:#D6DEEA;
+	overflow:hidden;
+}
+.topPage .slide{
+	text-align:center !important;
+	position:relative;
+	padding-top:10px;
+}
+.topPage .slide img{
+	width:513px;
+	height:220px;
+	margin-top:15px;
+	
+
+}
+.topPage .slide.active img{ 
+	width:560px;
+	height:240px; 
+	margin-top:0px;
+	border:5px solid #FFFFFF;
+}
+
+.topPage .bx-viewport {
+    overflow: visible!important;
+}
+.topPage  .main-container { 
+	overflow: hidden;
+	padding-bottom: 150px;
+}
+
+ 
+.topPage .listNavi{
+	padding-bottom:20px;
+}
+.topPage .listNavi em{
+	font-weight:bold;
+}
+.topPage .listNavi .selectBtn{
+	border:1px solid #CCCCCC;
+	border-radius:5px;
+	line-height:40px;
+	display:block;
+	text-align:center;
+	width:120px;
+	font-size:14px;
+	cursor:pointer;
+	color:#0CA3D9;
+	background:#EEEEEE;
+	vertical-align:top;
+}
+.topPage .listNavi .selectBtn2 em{
+	color:#CCC;
+	background:none;
+	padding:0px;
+}
+.topPage .listNavi .selectBtn2{
+	border:1px solid #CCCCCC;
+	border-radius:5px;
+	line-height:40px;
+	display:block;
+	text-align:center;
+	width:120px;
+	font-size:14px;
+	color:#0CA3D9;
+	background:#EEEEEE;
+	vertical-align:top;
+	padding:0px;
+}
+.topPage .listNavi .selectBtn3{
+	border:1px solid #CCCCCC;
+	border-radius:5px;
+	line-height:40px;
+	display:block;
+	text-align:center;
+	width:122px;
+	font-size:14px;
+	color:#0CA3D9;
+	background:#EEEEEE;
+	vertical-align:top;
+	cursor:pointer;
+	padding:0px;
+}
+.topPage .listNavi .decideBtn{
+	margin:0px;
+	border-radius:5px;
+	line-height:40px;
+	text-align:center;
+	width:120px;
+	font-size:14px;
+	cursor:pointer;
+	color:#FFF;
+	background:#16458B;
+	display:none;
+}
+.topPage .listNavi .selectBtn:hover{
+	opacity:0.7
+}
+.topPage .listNavi .selectBtn em,
+.topPage .listNavi .selectBtn3 em,
+.topPage .listNavi .decideBtn em{
+	background:url(../common/img/icn_arrow_r2.png) no-repeat right center;
+	background-size:7px;
+	padding-right:12px;
+}
+.topPage .listNavi ul{
+	display:block;
+	float:right;
+	vertical-align:top;
+	border:1px solid #0CA3D9;
+	border-radius:4px;
+}
+.topPage .listNavi ul li{
+	float:left;
+	width:195px;
+}
+.topPage .listNavi ul li a{
+	display:block;
+	line-height:40px;
+	text-align:center;
+	color:#FFFFFF;
+	background:#0CA3D9;
+}
+.topPage .listNavi ul li a:hover{
+	text-decoration:none;
+	opacity:0.8;
+}
+.topPage .listNavi ul li a.selected{
+	line-height:40px;
+	background:#FFFFFF;
+}
+.topPage .listNavi ul li.favoriteBtn a{
+	border-left:1px solid #FFF;
+	border-right:1px solid #FFF;
+}
+.topPage .listNavi ul li.infoBtn a em{
+	background:url(../common/img/icn_mail_white.png) no-repeat left 0px;
+	padding:2px 0 2px 25px;
+	background-size:20px;
+}
+.topPage .listNavi ul li.infoBtn a.selected em{
+	background:url(../common/img/icn_mail_blue.png) no-repeat left 0px;
+	color:#0CA3D8;
+	background-size:20px;
+}
+.topPage .listNavi ul li.trashBtn a em{
+	background:url(../common/img/icn_trash_white.png) no-repeat left -1px;
+	padding:2px 0 2px 25px;
+	background-size:20px;
+}
+.topPage .listNavi ul li.trashBtn a.selected em{
+	background:url(../common/img/icn_trash_blue.png) no-repeat left -1px;
+	color:#1B478A;
+	background-size:20px;
+}
+.topPage .listNavi ul li.favoriteBtn a em{
+	background:url(../common/img/icn_favorite_white.png) no-repeat left -1px;
+	padding:2px 0 2px 25px;
+	background-size:20px;
+}
+.topPage .listNavi ul li.favoriteBtn a.selected em{
+	background:url(../common/img/icn_favorite_yellow.png) no-repeat left -1px;
+	color:#FFA400;
+	background-size:20px;
+}
+
+.topPage .listNavi ul li.infoBtn a{
+	border-radius:2px 0 0 2px;
+}
+.topPage .listNavi ul li.trashBtn a{
+	border-radius:0 2px 2px 0;
+}
+.topPage .qaListWrap{
+	margin-bottom:20px;
+	border-top:2px solid #DDDDDD;
+	border-bottom:2px solid #DDDDDD;
+}
+.topPage .qaList{
+	width:100%;
+	border-top:1px solid #EEEEEE;
+	padding:7px 0;
+}
+.topPage .qaList:first-child{
+	border:none
+}
+
+.topPage .qaList tr{
+	position:relative;
+}
+.topPage .qaList td{
+	padding:5px 7px;
+	
+}
+
+.topPage .qaList td{
+	font-weight:bold;
+}
+.topPage .qaList .visited td{
+	color:#999999;
+	font-weight:normal;
+}
+.topPage .qaList .visited td a{
+	color:#878787;
+	font-weight:bold;
+}
+
+.topPage .qaList .lineCell{
+	padding:0px;
+	width:1px;
+}
+.topPage .qaList tr{
+	margin:7px 0;
+	padding-bottom:7px;
+	border-bottom:1px solid #EEEEEE;
+}
+.topPage .qaList tr:last-child{
+	padding-bottom:0px;
+	border-bottom:none;
+}
+.topPage .qaList .iconCell{
+	width:35px;
+	border-right:1px solid #EEEEEE;
+}
+.topPage .qaList .waitCell{
+	font-size:12px;
+	display:none;
+	width:114px;
+	padding:0px;
+	color:#999999;
+}
+.topPage .qaList input{
+	display:none;
+}
+.topPage .qaList label{
+	cursor:pointer;
+	display:block;
+	width:20px;
+	height:20px;
+	margin:0 auto;
+}
+.topPage .iconMail img{
+	width:20px;
+	height:20px;
+}
+.topPage .iconMail{
+	text-align:center;
+}
+.topPage .qaList .iconHide {
+	display:none;
+}
+.topPage .iconFavorite input + label{
+	background:url(../common/img/icn_favorite_grey.png);
+	background-size:contain;
+}
+.topPage .iconFavorite input:checked + label{
+	background:url(../common/img/icn_favorite_yellow.png);
+	background-size:contain;
+}
+.topPage .iconTrash input + label{
+	background:url(../common/img/icn_trash_grey.png);
+	background-size:contain;
+}
+.topPage .iconTrash input:checked + label{
+	background:url(../common/img/icn_trash_blue.png);
+	background-size:contain;
+}
+.topPage  .qaList td.ttlCell{
+	padding-left:10px;
+	width:590px;
+	position:relative;
+	border-right:1px solid #EEEEEE;
+}
+.topPage .ttlCell p{
+	display:inline;
+}
+.topPage .ttlCell em img{
+	width:20px;
+	margin-right:5px;
+}
+.topPage .qaList .dayCell{
+	padding-left:10px;
+	font-size:12px;
+	width:75px;
+}
+.topPage .qaList .dayCell div{
+	width:75px;
+}
+.topPage .qaList .iconWait{
+	display:inline-block;
+	background:#0CA3D9;
+	border-radius:50px;
+	text-align:center;
+	color:#FFFFFF;
+	font-size:12px;
+	line-height:20px;
+	padding:0 5px;
+	margin:0 5px 0 0;
+}
+.topPage .qaList .visted .ttlCell a{
+	color:#333333;
+}
+.topPage .qaList .visted  .dayCell{
+	color:#999999;
+}
+.topPage .btnMore{
+	display:none;
+}
+.topPage .messageTxt{
+	text-align:center;
+	padding:0 0 20px 0;
+}
+.topPage .btnWrap{
+	margin:10px auto;
+}
+.topPage .oshieteTop{
+	display:none;
+}
+@media screen and (max-width:767px){
+.topPage .ttl0{
+		display:none;
+	}
+.topPage  #container .inner{
+	padding-top:10px;
+}
+.topPage .listNavi{
+	margin:0 -10px 1px -10px;
+	padding-bottom:0px;
+	text-align:center;
+	overflow:hidden;
+}
+.topPage .listNavi ul{
+	border:none;
+	border-radius:0px;
+	float:none;
+	margin:0 -2px;
+}
+.topPage .listNavi ul li{
+	display:block;
+	width:33%;
+	margin:1px 1px 0px 0;
+}
+.topPage .listNavi ul li a{
+	border:1px solid #0CA3D9;
+}
+.topPage .listNavi ul li.favoriteBtn a{
+	border:1px solid #0CA3D9;
+}
+.topPage .listNavi ul li.trashBtn a,.topPage .listNavi ul li.infoBtn a{
+	border-radius:0px;
+}
+.topPage .listNavi .selectBtn,
+.topPage .listNavi .selectBtn2,
+.topPage .listNavi .selectBtn3{
+	display:block;
+	width:300px;
+	margin:10px auto;
+	float:none;
+}
+.topPage .listNavi .decideBtn{
+	display:none;
+	width:300px;
+	margin:10px auto;
+	float:none;
+}
+.topPage .qaListWrap{
+	margin:0 -10px;
+}
+.topPage .qaList {
+	
+	background:url(../common/img/icn_arrow_r2.png) no-repeat 98% center;
+	background-size:8px 14px;
+}
+.topPage .qaList .iconCell{
+	width:12.5%;
+	
+}
+.topPage .qaList .waitCell{
+	width:25%;
+	padding:0 0 0 5px;
+	font-size:11px;
+	letter-spacing:-1px;
+}
+.topPage .qaList .spDevice{
+	display:inline-block;
+}
+.topPage .qaList .ttlCell{
+	border:none;
+}
+.topPage .menuTop .qaList:nth-child(n+7){
+	display:none;
+}
+.topPage .menuTop .qaList:nth-child(6){
+	border-bottom:0px;
+	padding-bottom:0px;
+}
+.topPage .qaList .dayCell{
+	display:none;
+}
+.topPage .ttlCell p{
+	display:block;
+	padding-right:15px;
+	padding-top:5px;
+}
+.topPage .btnMore{
+	background:#EEEEEE;
+	line-height:50px;
+	color:#CCCCCC;
+	display:block;
+	text-align:center;
+	margin:10px 0;
+}
+.topPage .btnMore em{
+	color:#0CA3D8;
+}
+.topPage .menuDetail .cntrBtn{
+	display:none;
+}
+.topPage .menuDetail .iconHide{
+	display:table-cell;
+}
+
+.topPage .messageTxt{
+	text-align:center;
+	padding:15px 0 15px 0;
+	font-size:12px;
+}
+.topPage .oshieteTop{
+	display:block;
+	padding:10px 0;
+}
+
+.topPage .slide{
+	text-align:center !important;
+	position:relative;
+	padding-top:5px;
+}
+.topPage .slide img{
+	width:96%;
+	height:auto;
+	border:none;
+	margin-top:0px;
+
+}
+.topPage .slide.active img{ 
+	width:96%;
+	height:auto;
+	border:none;
+}
+
+
+.topPage .bx-viewport {
+    overflow: visible!important;
+}
+
+}
