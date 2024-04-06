@@ -1,0 +1,299 @@
+/*=====================
+		COMMON.Js
+=====================*/
+
+//viewportの設定
+$(function(){
+	/*
+var userAgent = window.navigator.userAgent.toLowerCase();
+var appVersion = window.navigator.appVersion.toLowerCase();
+if(userAgent.indexOf("iphone") > -1 || userAgent.indexOf("android") > -1){
+	$("head").prepend('<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />');
+}*/
+	var _ua = (function(u){
+		return {
+			Tablet:(u.indexOf("windows") != -1 && u.indexOf("touch") != -1 && u.indexOf("tablet pc") == -1)
+				|| u.indexOf("ipad") != -1
+				|| (u.indexOf("android") != -1 && u.indexOf("mobile") == -1)
+				|| (u.indexOf("firefox") != -1 && u.indexOf("tablet") != -1)
+				|| u.indexOf("kindle") != -1
+				|| u.indexOf("silk") != -1
+				|| u.indexOf("playbook") != -1,
+			Mobile:(u.indexOf("windows") != -1 && u.indexOf("phone") != -1)
+				|| u.indexOf("iphone") != -1
+				|| u.indexOf("ipod") != -1
+				|| (u.indexOf("android") != -1 && u.indexOf("mobile") != -1)
+				|| (u.indexOf("firefox") != -1 && u.indexOf("mobile") != -1)
+				|| u.indexOf("blackberry") != -1
+		}
+	})(window.navigator.userAgent.toLowerCase());
+
+	if(_ua.Mobile){
+		$("head").prepend('<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />');
+	}else{
+		$("head").prepend('<meta name="viewport" content="width=device-width,maximum-scale=1" />');
+	}
+
+
+
+});
+
+$(document).ready(function(){
+//ユーザーエージェントによる振分
+var	scrollHeight = $(document).height();
+var num = 320;
+var winNum = $(window).height()+num;
+var userAgent = window.navigator.userAgent.toLowerCase();
+var appVersion = window.navigator.appVersion.toLowerCase();
+if(userAgent.indexOf("iphone") > -1){
+	iosUrlH = 65;
+}else{
+	iosUrlH = 0;
+}
+//console.log(iosUrlH)
+
+
+//URLパラメータによる振分
+$(document).ready(function(){
+	//alert("Getパラメータ「key」の値は、"+  getParam()  +" です。");
+	//処理の振分
+	// IEでエラーになるのでコメント化
+//	if(getParam() == 2){
+//		$("#footer").css("height", 0);
+//		$("#header, #footer .inner, #pankz, #sideNavPc").hide();
+//		$("#content").css({"margin": "0 auto", "float": "none"});
+//		$("#container .inner").css("padding-bottom", 60);
+//	}
+});
+//function getParam() {
+//	var url   = location.href;
+//	parameters    = url.split("?");
+//	params   = parameters[1].split("&");
+//	var paramsArray = [];
+//	for ( i = 0; i < params.length; i++ ) {
+//		neet = params[i].split("=");
+//		paramsArray.push(neet[0]);
+//		paramsArray[neet[0]] = neet[1];
+//	}
+//	var categoryKey = paramsArray["key"];
+//	return categoryKey;
+//}
+
+
+var winW = $(window).width();
+var winH = $(window).height();
+var hdH = $("#header").height();
+var contH = $("#container").height();
+var ftH = $("#footer").height();
+/*
+console.log(
+	"winW: " + winW + "\n" +
+	"winH: " + winH + "\n" +
+	"hdH: " + hdH + "\n" +
+	"contH: " + contH + "\n" +
+	"ftH: " + ftH
+);
+*/
+
+var breakP = 767;
+var toTopB;
+
+//$("body").append("<div id='test' style='font-size:24px;line-height:1.4;position:fixed;color:#fff;background-color:#f00;left:5px;top:5px;'><p class='s1'></p><p class='s2'></p><p class='s3'></p><p class='s4'></p><p class='s5'></p><p class='s6'></p></div>");
+$(window).on("scroll", function() {
+	winW = $(window).width();
+	if(winW > breakP){//PC
+		toTopB = 20;
+	}else{//SP
+		toTopB = 10;
+	}
+	if($(this).scrollTop() > iosUrlH) {
+		TweenMax.to("#toTop", 0.4, {right:0});
+	}else{
+		TweenMax.to("#toTop", 0.4, {right:-61});
+	}
+scrollHeight = $(document).height();
+	scrollPosition = $(window).height() + $(window).scrollTop();
+	footHeight = $("#footer").innerHeight();
+
+/*
+$("#test .s1").text("scrl: " + $(window).scrollTop());
+$("#test .s2").text("画面下scrl: " + scrollPosition);
+$("#test .s3").text("docの高さ: " + scrollHeight);
+$("#test .s4").text("画面高さ: " + $(window).height());
+$("#test .s5").text("docの残り高さ: " + (scrollHeight - scrollPosition));
+$("#test .s6").text(footHeight + iosUrlH);
+*/
+
+	//docH - 画面下のスクロール <= footH + urlH
+	if(scrollHeight - scrollPosition <= footHeight + iosUrlH) {
+		$(".toTopWrap").css({
+			"position":"absolute",
+			"bottom": footHeight + toTopB
+		});
+	}else{
+		$(".toTopWrap").css({
+			"position":"fixed",
+			"bottom": toTopB
+		});
+	}
+});//onScroll End
+
+
+$("#toTop").click(function(){//クリックでtopへ
+	var speed = 400;// ミリ秒
+	var href= $(this).attr("href");
+	var target = $(href == "#" || href == "" ? 'html' : href);
+	var position = target.offset().top;
+	$("body, html").animate({scrollTop:position-70}, speed, 'swing');
+	return false;
+});
+
+
+//placeholder対応
+$(function () {
+  var supportsInputAttribute = function (attr) {
+    var input = document.createElement('input');
+    return attr in input;
+  };
+  if (!supportsInputAttribute('placeholder')) {
+    $('[placeholder]').each(function () {
+      var
+        input = $(this),
+        placeholderText = input.attr('placeholder'),
+        placeholderColor = 'GrayText',
+        defaultColor = input.css('color');
+      input.
+        focus(function () {
+          if (input.val() === placeholderText) {
+            input.val('').css('color', defaultColor);
+          }
+        }).
+        blur(function () {
+          if (input.val() === '') {
+            input.val(placeholderText).css('color', placeholderColor);
+          } else if (input.val() === placeholderText) {
+            input.css('color', placeholderColor);
+          }
+        }).
+        blur().
+        parents('form').
+          submit(function () {
+            if (input.val() === placeholderText) {
+              input.val('');
+            }
+          });
+    });
+  }
+});//placeholder
+
+//SPのnav
+$(".spBtnNav").click(function(){
+	if($(this).hasClass("opn")){
+		$(this).removeClass("opn");
+		$(this).next(".navGroup").slideUp();
+		$("#container, #footer").fadeIn();
+	}else{
+		$(".spBtnNav").removeClass("opn");
+		$("#sideNavSp .navGroup").slideUp();
+		$(this).addClass("opn");
+		$(this).next(".navGroup").slideDown();
+		$("#container, #footer").fadeOut();
+	}
+	return false;
+});
+//閉じるボタン
+$(".navClose").click(function(){
+		$(".spBtnNav").removeClass("opn");
+		$(this).parents(".navGroup").slideUp();
+		$("#container, #footer").fadeIn();
+	return false;
+});
+//リサイズでPC画面になったらspNavを消しコンテンツを表示
+$(window).on("resize", function() {
+	winW = $(window).width();
+	if(winW > breakP){//PC
+		$(".spBtnNav").removeClass("opn");
+		$("#sideNavSp .navGroup").hide();
+		$("#container, #footer").show();
+	}
+});//onResizeFnc End
+
+
+//アコーディオン
+//$(".acrdBtn").parent("li").eq(0).addClass("opn");
+//$(".acrdBtn").eq(0).next(".slideBox").show();
+$(".acrdBtn").click(function(){
+	$(this).next().slideToggle();
+	$(this).parent("li").toggleClass("opn")
+	return false;
+});
+
+
+//クリックスクロール
+$(".clkScrl").click(function(){
+	var speed = 400;// ミリ秒
+	var href= $(this).attr("href");
+	var target = $(href == "#" || href == "" ? 'html' : href);
+	var position = target.offset().top;
+	$("body, html").animate({scrollTop:position}, speed, 'swing');
+	return false;
+});
+
+
+//電話番号のリンク
+$(".linkTel").each(function(){
+	$(this).attr("href", "tel:" + $(this).text());
+});
+
+
+//ファイルボタン
+$(".inputFile").bind("change", function(){
+	var fileBoxNo = $(this).parents(".fileBox");
+	var fileName = $(this).val().replace("C:\\fakepath\\", "");
+	if(fileBoxNo.hasClass("fileBox1")){
+		if(fileName.length > 15){
+			fileName = "..." + fileName.substr(fileName.length - 14)
+		}
+	}else if(fileBoxNo.hasClass("fileBox2")){//sp時ボタンとテキストが改行
+		if(fileName.length > 20){
+			fileName = "..." + fileName.substr(fileName.length - 19)
+		}
+	}
+	$(this).parents(".fileBox").find(".upVal").css({"display": "inline-block"}).val(fileName);
+});
+$(".upVal").attr("disabled", "disabled").val("選択されていません");
+
+
+
+
+
+
+//リンク画像のホバー(画像を２枚用意)用
+$("img.ovr").mouseover(function(){
+	$(this).attr("src",$(this).attr("src").replace(/^(.+)(\.[a-z]+)$/, "$1_on$2"))
+}).mouseout(function(){
+	$(this).attr("src",$(this).attr("src").replace(/^(.+)_on(\.[a-z]+)$/, "$1$2"));
+})
+
+
+});//DocRdyFncEnd
+
+
+//多重クリック対応
+/**
+ * 初回送信であるかを示す真偽値です。
+ * @type {boolean}
+ */
+var isFirstSubmit = true;
+
+/**
+ * 多重送信防止処理
+ */
+function double() {
+	if (isFirstSubmit) {
+		isFirstSubmit = false;
+		return true;
+	} else {
+		return false;
+	}
+}
